@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "eccoinnmod",
+  "version": "${version}",
+
+  "name": "Transaticka Ecco-Inn Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Charlie Simonsson"
+  ],
+  "contact": {
+    "homepage": "https://eccoinn.transaticka.com/",
+    "sources": "https://github.com/merberol/ecco-inn-minecraft"
+  },
+
+  "license": "",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.transaticka.eccoinn.EccoInnMod"
+    ]
+  },
+  "mixins": [
+    "transtickaexamplemod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.8",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
