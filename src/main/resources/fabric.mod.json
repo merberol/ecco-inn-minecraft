@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "transtickaexamplemod.mixins.json"
+    "eccoinnmod.mixins.json"
   ],
 
   "depends": {

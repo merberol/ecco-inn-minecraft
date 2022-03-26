@@ -1,0 +1,10 @@
+{
+	"item.eccoinnmod.mithril_ingot": "Mithril Ingot",
+	"item.eccoinnmod.mithril_nugget": "Mithril Nugget",
+	
+	"block.eccoinnmod.mithril_block": "Mithril Block",
+	"block.eccoinnmod.mithril_ore": "Mithril Ore",
+	"block.eccoinnmod.raw_mithril_block": "Raw Mithril Block",
+	
+	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn"
+}

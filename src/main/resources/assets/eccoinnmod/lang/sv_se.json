@@ -1,0 +1,10 @@
+{
+	"item.eccoinnmod.mithril_ingot": "Mithril Tacka",
+	"item.eccoinnmod.mithril_nugget": "Mithril Pärla",
+	
+	"block.eccoinnmod.mithril_block": "Mithril Block",
+	"block.eccoinnmod.mithril_ore": "Mithril Malm",
+	"block.eccoinnmod.raw_mithril": "Rå Mithril",
+	
+	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn"
+}

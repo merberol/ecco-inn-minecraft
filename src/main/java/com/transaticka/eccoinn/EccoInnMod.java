@@ -4,6 +4,9 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.transaticka.eccoinn.block.ModBlocks;
+import com.transaticka.eccoinn.item.ModItems;
+
 public class EccoInnMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -17,6 +20,8 @@ public class EccoInnMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Loading Ecco Inn RP mod");
+		EccoInnMod.LOGGER.info("Initializing Ecco Inn!");
+        ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
 	}
 }
