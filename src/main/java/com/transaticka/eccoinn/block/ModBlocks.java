@@ -15,9 +15,15 @@ import net.minecraft.block.Block;
 
 public class ModBlocks
 {
-    public static Block MITHRIL_BLOCK = registerBlock("mithril_block", new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
-    public static Block RAW_MITHRIL_BLOCK = registerBlock("raw_mithril_block", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5f, 6.0f)), ModItemGroups.ECCO_INN);
-    public static Block MITHRIL_ORE = registerBlock("mithril_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(5.0f, 6.0f)), ModItemGroups.ECCO_INN);
+	// ************* Harvested Blocks
+	public static Block MITHRIL_ORE = registerBlock("mithril_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(5.0f, 6.0f)), ModItemGroups.ECCO_INN);
+	public static Block DEEPSLATE_MITHRIL_ORE = registerBlock("deepslate_mithril_ore", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(5.0f, 6.0f)), ModItemGroups.ECCO_INN);
+	
+	// ************* Raw Blocks // first tier crafting 
+	public static Block RAW_MITHRIL_BLOCK = registerBlock("raw_mithril_block", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5f, 6.0f)), ModItemGroups.ECCO_INN);
+    
+	// ************** Base Blocks // second tier crafting
+	public static Block MITHRIL_BLOCK = registerBlock("mithril_block", new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
  
 
     
@@ -26,8 +32,9 @@ public class ModBlocks
         return Registry.register(Registry.BLOCK, new Identifier("eccoinnmod", name), block);
     }
     
-    private static Item registerBlockItem(final String name, final Block block, final ItemGroup group) {
-        return Registry.register(Registry.ITEM, new Identifier("eccoinnmod", name), new BlockItem(block, (Item.Settings)new FabricItemSettings().group(group)));
+    private static Item registerBlockItem(String name, Block block, ItemGroup group) {
+        return Registry.register(Registry.ITEM, new Identifier("eccoinnmod", name),
+        		new BlockItem(block, new FabricItemSettings().group(group)));
     }
     
     public static void registerModBlocks() {

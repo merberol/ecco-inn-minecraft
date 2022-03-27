@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+
+  "ingredient": {
+    "item": "eccoinnmod:raw_mithril"
+  },
+  "result": "eccoinnmod:mithril_ingot",
+  "experience": 1,
+  "cookingtime": 100
+}

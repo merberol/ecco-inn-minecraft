@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "eccoinnmod:mithril_ore",
+    "eccoinnmod:deepslate_mithril_ore",
+    "eccoinnmod:mithril_block",
+    "eccoinnmod:raw_mithril_block"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "eccoinnmod:mithril_block"
+    }
+  ],
+  "result": {
+    "item": "eccoinnmod:mithril_ingot",
+    "count": 9
+  }
+}

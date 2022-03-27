@@ -1,10 +1,16 @@
 {
 	"item.eccoinnmod.mithril_ingot": "Mithril Ingot",
 	"item.eccoinnmod.mithril_nugget": "Mithril Nugget",
+	"item.eccoinnmod.dowsing_rod": "Dowsing Rod",
 	
 	"block.eccoinnmod.mithril_block": "Mithril Block",
+	
 	"block.eccoinnmod.mithril_ore": "Mithril Ore",
+	"block.eccoinnmod.deepslate_mithril_ore": "Deepslate Mithril Ore",
+	
+	"block.eccoinnmod.raw_mithril": "Raw Mithril",
 	"block.eccoinnmod.raw_mithril_block": "Raw Mithril Block",
 	
-	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn"
+	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn",
+	"item.eccoinnmod.dowsing_rod.no_valuables": "Found Nothing of value"
 }
