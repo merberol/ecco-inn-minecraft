@@ -1,8 +1,8 @@
 package com.transaticka.eccoinn.block.custom;
 
 import com.transaticka.eccoinn.EccoInnMod;
+import com.transaticka.eccoinn.custom.GateSystem;
 
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -51,6 +51,14 @@ public class PortalBlock extends Block {
 	@Override
 	public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
 		// TODO Teleport the entity to a randomly selected Portalblock location with state 1 
+		
+		if(!world.isClient()) {
+			
+			GateSystem ps = EccoInnMod.getGateSystem();
+			BlockPos telePos = ps.getRandomPos(pos);
+			EccoInnMod.LOGGER.info("teleporting to: " + telePos);
+			entity.teleport(telePos.getX() + 1, telePos.getY() + 1, telePos.getZ()); ;
+		}
 		super.onSteppedOn(world, pos, state, entity);
 	}
 	

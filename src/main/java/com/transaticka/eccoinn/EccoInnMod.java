@@ -8,7 +8,9 @@ import com.transaticka.eccoinn.custom.GateSystem;
 import com.transaticka.eccoinn.item.ModItems;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.level.storage.LevelSummary;
 
 public class EccoInnMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -16,7 +18,8 @@ public class EccoInnMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "eccoinnmod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	
+	public static String GAMEPATH = FabricLoader.getInstance().getGameDir().toString();
+	//public static String SAVEPATH =WorldSavePath.ROOT.;
 	private static final GateSystem gateSystem = new GateSystem();
 
 	@Override
@@ -24,8 +27,9 @@ public class EccoInnMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+	
 		EccoInnMod.LOGGER.info("Initializing Ecco Inn!");
+		EccoInnMod.LOGGER.info("ROOTGAMEPATH: " + EccoInnMod.GAMEPATH);
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         
@@ -33,6 +37,8 @@ public class EccoInnMod implements ModInitializer {
         
        
 	}
+	
+	
 	
 	public static void registerPortal(BlockPos pos, int state) {
 		
@@ -45,4 +51,9 @@ public class EccoInnMod implements ModInitializer {
 		gateSystem.unregister(pos);
 		
 	}
+	
+	public static GateSystem getGateSystem() {
+		return gateSystem;
+	}
+	
 }
