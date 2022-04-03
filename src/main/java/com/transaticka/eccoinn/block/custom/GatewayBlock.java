@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.explosion.Explosion;
 
-public class PortalBlock extends Block {
+public class GatewayBlock extends Block {
 	
 
-	public PortalBlock(Settings settings) {
+	public GatewayBlock(Settings settings) {
 		super(settings);
 		// TODO Auto-generated constructor stub
 	}
@@ -54,10 +54,14 @@ public class PortalBlock extends Block {
 		
 		if(!world.isClient()) {
 			
-			GateSystem ps = EccoInnMod.getGateSystem();
-			BlockPos telePos = ps.getRandomPos(pos);
-			EccoInnMod.LOGGER.info("teleporting to: " + telePos);
-			entity.teleport(telePos.getX() + 1, telePos.getY() + 1, telePos.getZ()); ;
+			GateSystem gs = EccoInnMod.getGateSystem();
+			if (gs.isActive(pos))
+			{
+				
+				BlockPos telePos = gs.getRandomPos(pos);
+				EccoInnMod.LOGGER.info("teleporting to: " + telePos);
+				entity.teleport(telePos.getX() + 1, telePos.getY() + 1, telePos.getZ());
+			}
 		}
 		super.onSteppedOn(world, pos, state, entity);
 	}

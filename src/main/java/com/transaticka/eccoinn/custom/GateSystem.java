@@ -1,14 +1,15 @@
 package com.transaticka.eccoinn.custom;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.transaticka.eccoinn.EccoInnMod;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -18,69 +19,86 @@ import net.minecraft.util.math.BlockPos;
 public class GateSystem {
 	
 	private HashMap<BlockPos, Integer> gates;
-	private String data;
 
-	
-	
-	public GateSystem() {
-		
-		gates = new HashMap<>();
-
-
+	public GateSystem() {	
+		gates = new HashMap<BlockPos, Integer>();
 	}
-	
-
 	
 	public GateSystem get() {
 		return this;
 	}
 	
-	
-
-	
-	
-	
 	public void onInitialize() {
 		EccoInnMod.LOGGER.info("Initializing GateSystem");
-		
-		ServerLifecycleEvents.SERVER_STOPPING.register(new GSServerStopping(this));
+		ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
+            
+            EccoInnMod.LOGGER.info("GS on server startingsave folder path is: " + EccoInnMod.worldFolderPath.toString());
+            EccoInnMod.loadGateSystem();
+        });
 		ServerLifecycleEvents.SERVER_STOPPED.register(new GSServerStopped(this));
-		
 	}
 	
-	
-	public void generateSaveState() {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		
-		data = gson.toJson(this.gates);
-		
-		EccoInnMod.LOGGER.info("GateSystem generated the following data" + data);
-		
+	public void load() {
+		try 
+		{
+			String path = EccoInnMod.worldFolderPath.toString() + "/portalsystem.json";
+		    File file = new File(path);
+		    Gson gson = new Gson();
+		    
+		    
+		    if (!file.exists()) {
+                file.createNewFile();
+                EccoInnMod.LOGGER.info("Created File as it did not exist.");
+                return;
+            }
+		    
+		    String jsonString = Files.readString(Path.of(path));
+		    JsonObject data = gson.fromJson(jsonString, JsonObject.class);
+		    EccoInnMod.LOGGER.info("Loaded Data from file: " + data);
+		    
+		    ArrayList<String> keysAsArray = new ArrayList<>(data.keySet());
+		    
+		    for (int i = 0; i < keysAsArray.size(); i++) {
+		    	EccoInnMod.LOGGER.info("Key: " + keysAsArray.get(i) + " Value: " + data.get(keysAsArray.get(i)));
+		    	try {
+		    		// EccoInnMod.LOGGER.info("trying to parse key");
+		    		JsonObject key = gson.fromJson(keysAsArray.get(i).replaceAll("(\")", ""), JsonObject.class);
+		    		// EccoInnMod.LOGGER.info("trying to konvert key to pos");
+		    		BlockPos pos = new BlockPos(key.get("x").getAsInt(), key.get("y").getAsInt(), key.get("z").getAsInt());
+		    		// EccoInnMod.LOGGER.info("trying to get val and convert to int");
+		    		int val = data.get(keysAsArray.get(i)).getAsInt();
+		    		// EccoInnMod.LOGGER.info("trying to add pair to map");
+		    		this.gates.put(pos, val);
+		    		// EccoInnMod.LOGGER.info("Created block pos instance: " + pos + " adn added to gates: " + this.gates);
+		    	}catch(Exception e) {
+		    		System.out.println(e);
+		    	}
+		    }
 
-		
+		    
+		    
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+		      e.printStackTrace();
+		}
 	}
 	
 	public void save() {
-		// source https://stackoverflow.com/questions/2885173/how-do-i-create-a-file-and-write-to-it
-		try{
-            // Create new file
-			//String dir = ;
-            String path = "portalsystem.json";
-            File file = new File(path);
+		try {
+			// source https://stackoverflow.com/questions/2885173/how-do-i-create-a-file-and-write-to-it
+			String path = EccoInnMod.worldFolderPath.toString() + "/portalsystem.json";
+	        File file = new File(path);
 
-            // If file doesn't exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+	        // If file doesn't exists, then create it
+	        if (!file.exists()) {
+	            file.createNewFile();
+	        }
 
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
+        	FileWriter fw = new FileWriter( file.getAbsoluteFile() );
 
-            // Write in file
-            bw.write(this.data);
+            fw.write(this.toJson());
 
-            // Close connection
-            bw.close();
+            fw.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -88,13 +106,22 @@ public class GateSystem {
 	}
 	
 	public void register(BlockPos pos, int state) {
-		EccoInnMod.LOGGER.info("registering gate at pos: " + pos);
+		//EccoInnMod.LOGGER.info("registering gate at pos: " + pos);
 		gates.put(pos, state);
 	}
 	
 	public void unregister(BlockPos pos) {
-		EccoInnMod.LOGGER.info("unregistering gate at pos: " + pos);
+		//EccoInnMod.LOGGER.info("unregistering gate at pos: " + pos);
 		gates.remove(pos);
+	}
+	
+	public boolean isActive(BlockPos pos) {
+		if (gates.get(pos) != null)
+		{
+			return gates.get(pos) == 1;
+		}
+		return false;
+		
 	}
 	
 	
@@ -133,6 +160,27 @@ public class GateSystem {
 	
 	private boolean equals(BlockPos current, BlockPos other) {
 		return current.getX() == other.getX() && current.getY() == other.getY() && current.getZ() == other.getZ();
+	}
+	
+	public String toJson() {
+		ArrayList<BlockPos> keysAsArray = new ArrayList<BlockPos>(this.gates.keySet());
+		
+		String asJson = "{";
+		boolean first = true;
+		for (BlockPos pos : keysAsArray)
+		{
+			String temp;
+			if(first)
+			{
+				first = !first;
+				temp = "\"{ x:" + pos.getX() + ", y:" + pos.getY() + ", z:" + pos.getZ() + "}\":" + this.gates.get(pos);
+			}else {
+				temp = ", \"{ x:" + pos.getX() + ", y:" + pos.getY() + ", z:" + pos.getZ() + "}\":" + this.gates.get(pos);
+			}
+			asJson += temp;
+		}
+		asJson += "}";
+		return asJson;
 	}
 	
 }

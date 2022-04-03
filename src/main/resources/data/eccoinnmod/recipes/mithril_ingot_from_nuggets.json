@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+	"###",
+	"###",
+	"###"
+	],
+	"key": {
+	 	"#": {
+			"item": "eccoinnmod:mithril_nugget"
+		}
+	},
+	"result": {
+		"item": "eccoinnmod:mithril_ingot",
+		"count": 1
+	}
+}

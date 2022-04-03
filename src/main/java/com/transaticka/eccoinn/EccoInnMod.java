@@ -1,16 +1,21 @@
 package com.transaticka.eccoinn;
 
+import java.nio.file.Path;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.transaticka.eccoinn.block.ModBlocks;
 import com.transaticka.eccoinn.custom.GateSystem;
 import com.transaticka.eccoinn.item.ModItems;
+import com.transaticka.eccoinn.mixin.SessionAccessor;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.level.storage.LevelSummary;
+import net.minecraft.world.level.storage.LevelStorage;
+
 
 public class EccoInnMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -18,8 +23,8 @@ public class EccoInnMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "eccoinnmod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static String GAMEPATH = FabricLoader.getInstance().getGameDir().toString();
-	//public static String SAVEPATH =WorldSavePath.ROOT.;
+	public static Path worldFolderPath;
+
 	private static final GateSystem gateSystem = new GateSystem();
 
 	@Override
@@ -27,9 +32,21 @@ public class EccoInnMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		
+		ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
+            LevelStorage.Session session = ((SessionAccessor)server).getSession();
+            String worldName = session.getDirectoryName();
+            EccoInnMod.LOGGER.info(worldName);
+            if (!server.isDedicated()) { //here we check if the server IS NOT dedicated, if it isn't we use the integrated server's file path
+            	worldFolderPath =  Path.of("saves", worldName);
+            } else { // if the server IS dedicated, we use the dedicated server's file path
+            	worldFolderPath =  Path.of(worldName);
+            }  
+            EccoInnMod.LOGGER.info("ROOTGAMEPATH: " + EccoInnMod.worldFolderPath);
+        });
 	
 		EccoInnMod.LOGGER.info("Initializing Ecco Inn!");
-		EccoInnMod.LOGGER.info("ROOTGAMEPATH: " + EccoInnMod.GAMEPATH);
+		
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         
@@ -54,6 +71,10 @@ public class EccoInnMod implements ModInitializer {
 	
 	public static GateSystem getGateSystem() {
 		return gateSystem;
+	}
+	
+	public static void loadGateSystem() {
+		gateSystem.load();
 	}
 	
 }

@@ -3,6 +3,8 @@
 	"item.eccoinnmod.mithril_nugget": "Mithril Nugget",
 	"item.eccoinnmod.dowsing_rod": "Dowsing Rod",
 	
+	"item.eccoinnmod.turnip": "Turnip",
+	
 	"block.eccoinnmod.mithril_block": "Mithril Block",
 	
 	"block.eccoinnmod.mithril_ore": "Mithril Ore",
@@ -10,6 +12,9 @@
 	
 	"block.eccoinnmod.raw_mithril": "Raw Mithril",
 	"block.eccoinnmod.raw_mithril_block": "Raw Mithril Block",
+	
+	
+	"block.eccoinnmod.gateway_block": "Gateway",
 	
 	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn",
 	"item.eccoinnmod.dowsing_rod.no_valuables": "Found Nothing of value"

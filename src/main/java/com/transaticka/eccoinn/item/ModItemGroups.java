@@ -2,7 +2,7 @@ package com.transaticka.eccoinn.item;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.util.Identifier;
-import net.minecraft.item.ItemConvertible;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 

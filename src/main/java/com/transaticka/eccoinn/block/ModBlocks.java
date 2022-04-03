@@ -1,7 +1,7 @@
 package com.transaticka.eccoinn.block;
 
 import com.transaticka.eccoinn.EccoInnMod;
-import com.transaticka.eccoinn.block.custom.PortalBlock;
+import com.transaticka.eccoinn.block.custom.GatewayBlock;
 import com.transaticka.eccoinn.item.ModItemGroups;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -28,7 +28,7 @@ public class ModBlocks
 	
 	
 	// ************** Custom blocks
-	public static Block PORTAL_BLOCK = registerBlock("portal_block", new PortalBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	public static Block GATEWAY_BLOCK = registerBlock("gateway_block", new GatewayBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
 
     
     private static Block registerBlock(final String name, final Block block, final ItemGroup group) {

@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "eccoinnmod:mithril_ore"
+              "name": "eccoinnmod:deepslate_mithril_ore"
             },
             {
               "type": "minecraft:item",
@@ -35,8 +35,8 @@
                   "function": "minecraft:set_count",
                   "count": {
                     "type": "minecraft:uniform",
-                    "min": 1.0,
-                    "max": 2.0
+                    "min": 2.0,
+                    "max": 3.0
                   },
                   "add": false
                 },

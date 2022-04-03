@@ -6,7 +6,11 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "SessionAccessor"
+  ],
+  "server": [
+  	"SessionAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

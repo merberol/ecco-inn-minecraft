@@ -12,7 +12,7 @@ public class ModItems
 {
 	
     // ************* Harvested Materials
-	
+	public static final Item TURNIP = registerItem("turnip", new Item(new FabricItemSettings().group(ModItemGroups.ECCO_INN).food(ModFoodComponents.TURNIP)));
 	
 	// ************* Raw materials // first tier crafting 
 	public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new FabricItemSettings().group(ModItemGroups.ECCO_INN)));
