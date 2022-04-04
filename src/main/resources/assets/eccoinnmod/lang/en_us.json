@@ -10,12 +10,15 @@
 	"block.eccoinnmod.mithril_ore": "Mithril Ore",
 	"block.eccoinnmod.deepslate_mithril_ore": "Deepslate Mithril Ore",
 	
-	"block.eccoinnmod.raw_mithril": "Raw Mithril",
+	"item.eccoinnmod.raw_mithril": "Raw Mithril",
 	"block.eccoinnmod.raw_mithril_block": "Raw Mithril Block",
 	
 	
 	"block.eccoinnmod.gateway_block": "Gateway",
 	
 	"itemGroup.eccoinnmod.ecco_inn": "Ecco Inn",
-	"item.eccoinnmod.dowsing_rod.no_valuables": "Found Nothing of value"
+	"item.eccoinnmod.dowsing_rod.no_valuables": "Found Nothing of value",
+	
+	"tooltip.eccoinnmod": "Press §eSHIFT§r for more Information",
+	"tooltip.item.eccoinnmod.dowsing_rod.shift": "§eRight Click§r to find valuables"
 }

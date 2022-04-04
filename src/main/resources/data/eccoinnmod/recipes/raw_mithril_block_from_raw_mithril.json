@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+	"###",
+	"###",
+	"###"
+	],
+	"key": {
+	 	"#": {
+			"item": "eccoinnmod:raw_mithril"
+		}
+	},
+	"result": {
+		"item": "eccoinnmod:raw_mithril_block",
+		"count": 1
+	}
+}

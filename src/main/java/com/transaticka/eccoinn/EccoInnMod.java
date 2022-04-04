@@ -9,10 +9,10 @@ import com.transaticka.eccoinn.block.ModBlocks;
 import com.transaticka.eccoinn.custom.GateSystem;
 import com.transaticka.eccoinn.item.ModItems;
 import com.transaticka.eccoinn.mixin.SessionAccessor;
+import com.transaticka.eccoinn.util.ModRegistries;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.level.storage.LevelStorage;
 
@@ -49,6 +49,7 @@ public class EccoInnMod implements ModInitializer {
 		
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        ModRegistries.registerModStuffs();
         
         gateSystem.onInitialize();
         

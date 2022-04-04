@@ -1,0 +1,10 @@
+{
+    "variants": {
+      "powered=false": {
+        "model": "eccoinnmodblock/mithril_pressure_plate"
+      },
+      "powered=true": {
+        "model": "eccoinnmodblock/mithril_pressure_plate_down"
+      }
+    }
+}

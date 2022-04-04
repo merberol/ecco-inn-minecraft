@@ -1,13 +1,20 @@
 package com.transaticka.eccoinn.item.custom;
 
+import java.util.List;
+
 import com.transaticka.eccoinn.block.ModBlocks;
+import com.transaticka.eccoinn.util.ModTags;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -49,6 +56,18 @@ public class DowsingRodItem extends Item {
 				(player) -> player.sendToolBreakStatus(player.getActiveHand()));
 		return super.useOnBlock(context);
 	}
+	
+	
+
+	@Override
+	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+		if(Screen.hasShiftDown()) {
+			tooltip.add(new TranslatableText("tooltip.item.eccoinnmod.dowsing_rod.shift"));
+		}else {
+			tooltip.add(new TranslatableText("tooltip.eccoinnmod"));
+		}
+		super.appendTooltip(stack, world, tooltip, context);
+	}
 
 	private void outputValuableCoordinates(BlockPos blockPos, PlayerEntity player, int i, Block blockBelow) {
 		player.sendMessage(new LiteralText("Found " + blockBelow.asItem().getName().getString() + " at " +
@@ -56,7 +75,9 @@ public class DowsingRodItem extends Item {
 	}
 	
 	private boolean isValuableBlock(Block block) {
-		return block == Blocks.DIAMOND_ORE 
+		return ModTags.Blocks.DOWSING_ROD_DETECTABLE_BLOCKS.contains(block);
+				/*
+				 * block == Blocks.DIAMOND_ORE 
 				|| block == Blocks.DEEPSLATE_DIAMOND_ORE
 				|| block == ModBlocks.MITHRIL_ORE
 			    || block == ModBlocks.DEEPSLATE_MITHRIL_ORE
@@ -64,6 +85,7 @@ public class DowsingRodItem extends Item {
 				|| block == Blocks.DEEPSLATE_GOLD_ORE
 				|| block == Blocks.WATER
 				|| block == Blocks.LAVA;
+	*/
 	}
 	
 	

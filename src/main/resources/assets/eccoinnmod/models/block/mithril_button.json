@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/button",
+    "textures": {
+      "texture": "eccoinnmod:block/mithril_block"
+    }
+}

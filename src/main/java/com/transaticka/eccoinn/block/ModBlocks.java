@@ -2,12 +2,18 @@ package com.transaticka.eccoinn.block;
 
 import com.transaticka.eccoinn.EccoInnMod;
 import com.transaticka.eccoinn.block.custom.GatewayBlock;
+import com.transaticka.eccoinn.block.custom.ModDoorBlock;
+import com.transaticka.eccoinn.block.custom.ModStairsBlock;
 import com.transaticka.eccoinn.item.ModItemGroups;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -25,6 +31,27 @@ public class ModBlocks
     
 	// ************** Base Blocks // second tier crafting
 	public static Block MITHRIL_BLOCK = registerBlock("mithril_block", new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	
+	// ************** Base craftables // third tier crafting 
+	public static Block MITHRIL_STAIRS = registerBlock("mithril_stairs", 
+			new ModStairsBlock(ModBlocks.MITHRIL_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block MITHRIL_SLAB = registerBlock("mithril_slab", 
+			new SlabBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block MITHRIL_WALL = registerBlock("mithril_wall", 
+			new WallBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block MITHRIL_FENCE = registerBlock("mithril_fence", 
+			new FenceBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block MITHRIL_FENCE_GATE = registerBlock("mithril_fence_gate", 
+			new FenceGateBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block MITHRIL_DOOR = registerBlock("mithril_door", 
+			new ModDoorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
 	
 	
 	// ************** Custom blocks

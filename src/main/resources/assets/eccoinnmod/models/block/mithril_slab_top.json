@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "eccoinnmod:block/mithril_block",
+    "top": "eccoinnmod:block/mithril_block",
+    "side": "eccoinnmod:block/mithril_block"
+  }
+}
