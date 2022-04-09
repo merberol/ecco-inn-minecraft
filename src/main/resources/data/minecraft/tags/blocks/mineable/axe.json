@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-
+	"eccoinnmod:apple_door",
+	"eccoinnmod:apple_trap_door"
   ]
 }

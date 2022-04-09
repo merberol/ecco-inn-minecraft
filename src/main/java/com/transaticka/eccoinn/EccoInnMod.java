@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.transaticka.eccoinn.block.ModBlocks;
 import com.transaticka.eccoinn.custom.GateSystem;
+import com.transaticka.eccoinn.enchantment.ModEnchantments;
 import com.transaticka.eccoinn.item.ModItems;
 import com.transaticka.eccoinn.mixin.SessionAccessor;
 import com.transaticka.eccoinn.util.ModRegistries;
@@ -15,6 +16,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.level.storage.LevelStorage;
+// ToDo : Fix drop tables for custom blocks. */
 
 
 public class EccoInnMod implements ModInitializer {
@@ -42,13 +44,16 @@ public class EccoInnMod implements ModInitializer {
             } else { // if the server IS dedicated, we use the dedicated server's file path
             	worldFolderPath =  Path.of(worldName);
             }  
-            EccoInnMod.LOGGER.info("ROOTGAMEPATH: " + EccoInnMod.worldFolderPath);
+            // EccoInnMod.LOGGER.info("ROOTGAMEPATH: " + EccoInnMod.worldFolderPath);
         });
 	
 		EccoInnMod.LOGGER.info("Initializing Ecco Inn!");
 		
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        
+        ModEnchantments.registerModEnchantments();
+        
         ModRegistries.registerModStuffs();
         
         gateSystem.onInitialize();

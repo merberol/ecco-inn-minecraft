@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "eccoinnmod:block/mithril_block",
     "top": "eccoinnmod:block/mithril_block",

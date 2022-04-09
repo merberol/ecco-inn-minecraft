@@ -32,7 +32,7 @@ public class GateSystem {
 		EccoInnMod.LOGGER.info("Initializing GateSystem");
 		ServerLifecycleEvents.SERVER_STARTING.register((server) -> {
             
-            EccoInnMod.LOGGER.info("GS on server startingsave folder path is: " + EccoInnMod.worldFolderPath.toString());
+            //EccoInnMod.LOGGER.info("GS on server startingsave folder path is: " + EccoInnMod.worldFolderPath.toString());
             EccoInnMod.loadGateSystem();
         });
 		ServerLifecycleEvents.SERVER_STOPPED.register(new GSServerStopped(this));
@@ -132,7 +132,7 @@ public class GateSystem {
 		keysAsArray.remove(current);
 		int size = keysAsArray.size();
 		
-		EccoInnMod.LOGGER.info("Gate System: " + gates);
+		//EccoInnMod.LOGGER.info("Gate System: " + gates);
 		if(size < 1) {
 			EccoInnMod.LOGGER.warn("Gate System has no logged gates!");
 			return next;
@@ -148,12 +148,12 @@ public class GateSystem {
 				}
 				next =  keysAsArray.remove( r.nextInt( size ) );
 			}
-			EccoInnMod.LOGGER.info("returning pos: " + next);
+			//EccoInnMod.LOGGER.info("returning pos: " + next);
 
 		}
 		else if(size == 1) {
 			next = keysAsArray.get(0);
-			EccoInnMod.LOGGER.info("returning: " + next);
+			//EccoInnMod.LOGGER.info("returning: " + next);
 		}
 		return next;
 	}
@@ -163,6 +163,7 @@ public class GateSystem {
 	}
 	
 	public String toJson() {
+		//ToDo: change to utilize BlockPos as long method.
 		ArrayList<BlockPos> keysAsArray = new ArrayList<BlockPos>(this.gates.keySet());
 		
 		String asJson = "{";

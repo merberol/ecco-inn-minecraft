@@ -14,11 +14,17 @@ public class ModTags {
 		public static final Tag.Identified<Block> DOWSING_ROD_DETECTABLE_BLOCKS = 
 				createTag("dowsing_rod_detectable_blocks");
 		
+		public static final Tag.Identified<Block> PAXEL_MINEABLE = 
+				createTag("mineable/paxel");
+		
 		public static final Tag.Identified<Block> MITHRIL_BLOCKS = 
 				createCommonTag("mithril_blocks");
 		
 		public static final Tag.Identified<Block> MITHRIL_ORES = 
 				createCommonTag("mithril_ores");
+		
+		
+		
 		
 		private static Tag.Identified<Block> createTag(String name) {
 			return TagFactory.BLOCK.create(new Identifier(EccoInnMod.MOD_ID, name));

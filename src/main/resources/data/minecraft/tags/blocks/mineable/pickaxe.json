@@ -4,6 +4,17 @@
     "eccoinnmod:mithril_ore",
     "eccoinnmod:deepslate_mithril_ore",
     "eccoinnmod:mithril_block",
-    "eccoinnmod:raw_mithril_block"
+    "eccoinnmod:raw_mithril_block",
+    "eccoinnmod:mithril_button",
+    "eccoinnmod:mithril_door",
+    "eccoinnmod:mithril_fence",
+    "eccoinnmod:mithril_fence_gate",
+    "eccoinnmod:mithril_lamp",
+    "eccoinnmod:mithril_pressure_plate",
+    "eccoinnmod:mithril_slab",
+    "eccoinnmod:mithril_stairs",
+    "eccoinnmod:mithril_trap_door",
+    "eccoinnmod:mithril_wall",
+    "eccoinnmod:gateway_block"
   ]
 }

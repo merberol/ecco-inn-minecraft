@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.transaticka.eccoinn.EccoInnMod"
+    ],
+    "client": [
+    	"com.transaticka.eccoinn.EccoInnClient"
     ]
   },
   "mixins": [

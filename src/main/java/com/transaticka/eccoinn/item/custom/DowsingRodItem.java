@@ -2,11 +2,9 @@ package com.transaticka.eccoinn.item.custom;
 
 import java.util.List;
 
-import com.transaticka.eccoinn.block.ModBlocks;
 import com.transaticka.eccoinn.util.ModTags;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,12 +22,10 @@ public class DowsingRodItem extends Item {
 
 	public DowsingRodItem(Settings settings) {
 		super(settings);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public ActionResult useOnBlock(ItemUsageContext context) {
-		// TODO Auto-generated method stub
 		if(context.getWorld().isClient())
 		{
 			BlockPos positionClicked = context.getBlockPos();

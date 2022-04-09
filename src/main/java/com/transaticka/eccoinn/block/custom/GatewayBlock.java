@@ -18,12 +18,12 @@ public class GatewayBlock extends Block {
 
 	public GatewayBlock(Settings settings) {
 		super(settings);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	@Override
 	public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-		// TODO Auto-generated method stub
+
 		if(!world.isClient()) {			
 			unregister(pos);
 		}
@@ -32,7 +32,7 @@ public class GatewayBlock extends Block {
 
 	@Override
 	public void onDestroyedByExplosion(World world, BlockPos pos, Explosion explosion) {
-		// TODO Auto-generated method stub
+
 		if(!world.isClient()) {			
 			unregister(pos);
 		}
@@ -41,7 +41,7 @@ public class GatewayBlock extends Block {
 
 	@Override
 	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-		// TODO Auto-generated method stub
+
 		if(!world.isClient()) {			
 			register(pos,1);
 		}
@@ -50,7 +50,8 @@ public class GatewayBlock extends Block {
 
 	@Override
 	public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-		// TODO Teleport the entity to a randomly selected Portalblock location with state 1 
+		/* TODO: implement energy */
+		/* TODO: implement some way to target specific coordinates */
 		
 		if(!world.isClient()) {
 			

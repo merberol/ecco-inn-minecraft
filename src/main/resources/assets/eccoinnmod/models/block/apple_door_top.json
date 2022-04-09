@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/door_top",
+    "textures": {
+      "top": "eccoinnmod:block/apple_door_top",
+      "bottom": "eccoinnmod:block/apple_door_bottom"
+    }
+}

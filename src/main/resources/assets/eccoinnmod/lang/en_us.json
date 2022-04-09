@@ -1,17 +1,49 @@
 {
+	"item.eccoinnmod.raw_mithril": "Raw Mithril",
 	"item.eccoinnmod.mithril_ingot": "Mithril Ingot",
 	"item.eccoinnmod.mithril_nugget": "Mithril Nugget",
 	"item.eccoinnmod.dowsing_rod": "Dowsing Rod",
 	
 	"item.eccoinnmod.turnip": "Turnip",
 	
-	"block.eccoinnmod.mithril_block": "Mithril Block",
+	"item.eccoinnmod.mithril_axe": "Mithril Axe",
+	"item.eccoinnmod.mithril_pickaxe": "Mithril Pickaxe",
+	"item.eccoinnmod.mithril_hoe": "Mithril Hoe",
+	"item.eccoinnmod.mithril_shovel": "Mithril shovel",
 	
+	"item.eccoinnmod.mithril_sword": "Mithril Sword",
+	"item.eccoinnmod.mithril_paxel": "Mithril Paxel",
+	
+	"item.eccoinnmod.mithril_chain_coif": "Mithril Chainmail Coif",
+	"item.eccoinnmod.mithril_chain_shirt": "Mithril Chainmail Shirt",
+	"item.eccoinnmod.mithril_chain_leggins": "Mithril Chainmail Leggings",
+	"item.eccoinnmod.mithril_chain_boots": "Mithril Chainmail Boots",
+	
+	"item.eccoinnmod.mithril_helmet": "Mithril Helmet",
+	"item.eccoinnmod.mithril_chestplate": "Mithril Chestplate",
+	"item.eccoinnmod.mithril_leggins": "Mithril Leggings",
+	"item.eccoinnmod.mithril_boots": "Mithril Boots",
+	
+	"item.eccoinnmod.mithril_horse_armor": "Mithril Horse Armor",
+	
+	"block.eccoinnmod.mithril_block": "Mithril Block",
 	"block.eccoinnmod.mithril_ore": "Mithril Ore",
 	"block.eccoinnmod.deepslate_mithril_ore": "Deepslate Mithril Ore",
-	
-	"item.eccoinnmod.raw_mithril": "Raw Mithril",
 	"block.eccoinnmod.raw_mithril_block": "Raw Mithril Block",
+	
+	"block.eccoinnmod.mithril_stairs": "Mithril Stairs",
+	"block.eccoinnmod.mithril_slab": "Mithril Slab",
+	"block.eccoinnmod.mithril_button": "Mithril Button",
+	"block.eccoinnmod.mithril_pressure_plate": "Mithril Pressure Plate",
+	"block.eccoinnmod.mithril_fence": "Mithril Fence",
+	"block.eccoinnmod.mithril_fence_gate": "Mithril Fence Gate",
+	"block.eccoinnmod.mithril_wall": "Mithril Wall",
+	"block.eccoinnmod.mithril_trap_door": "Mithril Trap Door",
+	"block.eccoinnmod.mithril_door": "Mithril Door",
+	
+	"block.eccoinnmod.apple_trap_door": "Apple Trap Door",
+	"block.eccoinnmod.apple_door": "Apple Door",
+	
 	
 	
 	"block.eccoinnmod.gateway_block": "Gateway",
@@ -20,5 +52,7 @@
 	"item.eccoinnmod.dowsing_rod.no_valuables": "Found Nothing of value",
 	
 	"tooltip.eccoinnmod": "Press §eSHIFT§r for more Information",
-	"tooltip.item.eccoinnmod.dowsing_rod.shift": "§eRight Click§r to find valuables"
+	"tooltip.item.eccoinnmod.dowsing_rod.shift": "§eRight Click§r to find valuables",
+	
+	"enchantment.eccoinnmod.lightning_striker": "Lightning Striker"
 }

@@ -9,7 +9,7 @@ public class GSServerStopped implements ServerStopped{
 	
 	private GateSystem _gs;
 	public GSServerStopped(GateSystem gs) {
-		// TODO Auto-generated constructor stub
+
 		super();
 		
 		this._gs = gs;
@@ -17,7 +17,6 @@ public class GSServerStopped implements ServerStopped{
 
 	@Override
 	public void onServerStopped(MinecraftServer server) {
-		// TODO Auto-generated method stub
 		EccoInnMod.LOGGER.info("ServerStopped Saveing portalsystem data");
 		this._gs.save();
 		

@@ -2,8 +2,13 @@ package com.transaticka.eccoinn.block;
 
 import com.transaticka.eccoinn.EccoInnMod;
 import com.transaticka.eccoinn.block.custom.GatewayBlock;
+import com.transaticka.eccoinn.block.custom.MithrilLampBlock;
+import com.transaticka.eccoinn.block.custom.MithrilTrapdoorBlock;
+import com.transaticka.eccoinn.block.custom.ModButtonBlock;
 import com.transaticka.eccoinn.block.custom.ModDoorBlock;
+import com.transaticka.eccoinn.block.custom.ModPressurePlateBlock;
 import com.transaticka.eccoinn.block.custom.ModStairsBlock;
+import com.transaticka.eccoinn.block.custom.ModTrapdoorBlock;
 import com.transaticka.eccoinn.item.ModItemGroups;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -12,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.PressurePlateBlock.ActivationRule;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
@@ -49,20 +55,44 @@ public class ModBlocks
 	public static Block MITHRIL_FENCE_GATE = registerBlock("mithril_fence_gate", 
 			new FenceGateBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
 	
+	public static Block MITHRIL_BUTTON = registerBlock("mithril_button", 
+			new ModButtonBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
 	public static Block MITHRIL_DOOR = registerBlock("mithril_door", 
 			new ModDoorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
 	
+	public static Block MITHRIL_PRESSURE_PLATE = registerBlock("mithril_pressure_plate", 
+			new ModPressurePlateBlock(ActivationRule.MOBS, FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
 	
+	public static Block MITHRIL_TRAP_DOOR = registerBlock("mithril_trap_door", 
+			new MithrilTrapdoorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
+	
+	public static Block APPLE_DOOR = registerBlock("apple_door", 
+			new ModDoorBlock(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(4.0f).nonOpaque()), ModItemGroups.ECCO_INN);
+	
+	public static Block APPLE_TRAP_DOOR = registerBlock("apple_trap_door", 
+			new ModTrapdoorBlock(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(4.0f).nonOpaque()), ModItemGroups.ECCO_INN);
 	
 	// ************** Custom blocks
 	public static Block GATEWAY_BLOCK = registerBlock("gateway_block", new GatewayBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)), ModItemGroups.ECCO_INN);
 
+	public static Block MITHRIL_LAMP = registerBlock("mithril_lamp", 
+			new MithrilLampBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(120.0f, 1500.0f)
+					.luminance((state) -> state.get(MithrilLampBlock.CLICKED) ? 15 : 0)), ModItemGroups.ECCO_INN);
+	
+	
+	
+	
+	
+	
+	
+	//*************************  Helper methods ******************************************
     
-    private static Block registerBlock(final String name, final Block block, final ItemGroup group) {
+	private static Block registerBlock(final String name, final Block block, final ItemGroup group) {
         registerBlockItem(name, block, group);
         return Registry.register(Registry.BLOCK, new Identifier("eccoinnmod", name), block);
     }
-    
+
     private static Item registerBlockItem(String name, Block block, ItemGroup group) {
         return Registry.register(Registry.ITEM, new Identifier("eccoinnmod", name),
         		new BlockItem(block, new FabricItemSettings().group(group)));
